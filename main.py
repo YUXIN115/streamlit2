@@ -1,3 +1,32 @@
+import subprocess
+import sys
+import os
+
+# 强制安装并显示安装过程
+def install_package(package):
+    try:
+        __import__(package.replace('-', '_'))
+    except ImportError:
+        print(f"正在安装 {package}...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+# 安装所有需要的库
+packages = ['folium', 'streamlit-folium', 'branca', 'numpy', 'pandas']
+for pkg in packages:
+    install_package(pkg)
+
+# 现在导入
+import streamlit as st
+import pandas as pd
+import folium
+from streamlit_folium import st_folium
+import numpy as np
+import time
+from datetime import datetime
+import math
+import random
+
+# 你的其他代码...
 import streamlit as st
 import pandas as pd
 import folium
