@@ -1,22 +1,3 @@
-import sys
-import os
-
-# 方法1：使用 pip 的另一种调用方式
-try:
-    import folium
-except ImportError:
-    os.system(f"{sys.executable} -m pip install folium streamlit-folium branca --user")
-
-# 再次尝试导入
-try:
-    import folium
-    from streamlit_folium import st_folium
-except ImportError:
-    # 如果还是失败，显示错误信息
-    st.error("无法安装 folium，请在终端手动运行: pip install folium streamlit-folium")
-    st.stop()
-
-# 你的其他导入
 import streamlit as st
 import pandas as pd
 import numpy as np
